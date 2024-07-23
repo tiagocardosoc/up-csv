@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "serve -s dist",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "test": "vitest run && npm run coverage",
@@ -36,6 +37,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "serve": "^14.2.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
     "vite": "^5.3.4",
