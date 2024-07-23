@@ -9,7 +9,7 @@ function LoadingScreen() {
       sx={{ color: "#fff", zIndex: theme => theme.zIndex.drawer + 1 }}
       open={isLoading}
     >
-      <CircularProgress color='inherit' />
+      <CircularProgress data-testid='spinner-loading' color='inherit' />
     </Backdrop>
   ) : null
 }

@@ -20,7 +20,7 @@ export default class FileService {
             const formData = new FormData();
             formData.append('file', file);
 
-            const { data } = await this.apiService.post('/api/files', formData, {
+            await this.apiService.post('/api/files', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -30,12 +30,12 @@ export default class FileService {
                 this.setLoading(false);
             }, 1000);
 
-            return { message: 'Upload successful', data };
+            return { message: 'Upload successful' };
         } catch (error: any) {
             this.setLoading(false);
             return {
                 message: error.message || 'Error uploading file',
-                error,
+                error: error.error || true,
             };
         }
     }
@@ -59,7 +59,7 @@ export default class FileService {
             this.setLoading(false);
             return {
                 message: error.message || 'Error searching file',
-                error,
+                error: error.error || true,
             };
         }
     }

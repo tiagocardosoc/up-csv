@@ -49,13 +49,16 @@ function HomePage() {
     if (response.data) {
       setItems(response.data)
     }
+
+    if (response.error) {
+      showError(response.message)
+    }
   }
 
   useEffect(() => {
     fetchSearchData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearch])
-  console.log(searchTerm)
 
   return (
     <>
