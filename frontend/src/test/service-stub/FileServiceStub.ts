@@ -10,7 +10,7 @@ export default class FileServiceStub {
         this.setLoading = options.setLoading;
     }
 
-    async uploadFileWithSuccess(file: File): Promise<IResponseApi> {
+    async uploadFileWithSuccess(): Promise<IResponseApi> {
         try {
             this.setLoading(true);
 
@@ -28,7 +28,7 @@ export default class FileServiceStub {
         }
     }
 
-    async uploadFileWithError(file: File): Promise<IResponseApi> {
+    async uploadFileWithError(): Promise<IResponseApi> {
         try {
             throw new Error()
         } catch (error: any) {
@@ -40,7 +40,7 @@ export default class FileServiceStub {
         }
     }
 
-    async searchFileWithSucess(query: string): Promise<IResponseApi<IItems[]>> {
+    async searchFileWithSucess(): Promise<IResponseApi<IItems[]>> {
         try {
             const responseData: IItems[] = [
                 {
@@ -79,7 +79,7 @@ export default class FileServiceStub {
         }
     }
 
-    async searchFileWithError(query: string): Promise<IResponseApi<IItems[]>> {
+    async searchFileWithError(): Promise<IResponseApi<IItems[]>> {
         try {
             throw Error()
         } catch (error: any) {

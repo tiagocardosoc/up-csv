@@ -14,23 +14,21 @@ describe('FileService', () => {
     })
 
     it('should upload file successfully', async () => {
-        const mockFile = new File(['dummy content'], 'test.csv', { type: 'text/csv' })
         const mockResponse = { message: 'Upload successful' }
 
         vi.fn().mockResolvedValueOnce(mockResponse)
 
-        const response = await fileService.uploadFileWithSuccess(mockFile)
+        const response = await fileService.uploadFileWithSuccess()
 
         expect(response).toEqual(mockResponse)
     })
 
     it('should handle error during file upload', async () => {
-        const mockFile = new File(['dummy content'], 'test.csv', { type: 'text/csv' })
         const mockError = new Error('Upload failed')
 
         vi.fn().mockRejectedValueOnce(mockError)
 
-        const response = await fileService.uploadFileWithError(mockFile)
+        const response = await fileService.uploadFileWithError()
 
         expect(response).toEqual({
             message: 'Error uploading file',
@@ -39,7 +37,6 @@ describe('FileService', () => {
     })
 
     it('should search for files successfully', async () => {
-        const mockQuery = 'test'
         const mockData: IItems[] = [
             {
                 name: "Test 1",
@@ -71,18 +68,17 @@ describe('FileService', () => {
 
         vi.fn().mockResolvedValueOnce({ data: mockResponse })
 
-        const response = await fileService.searchFileWithSucess(mockQuery)
+        const response = await fileService.searchFileWithSucess()
 
         expect(response).toEqual(mockResponse)
     })
 
     it('should handle error during file search', async () => {
-        const mockQuery = 'test'
         const mockError = new Error('Search failed')
 
         vi.fn().mockRejectedValueOnce(mockError)
 
-        const response = await fileService.searchFileWithError(mockQuery)
+        const response = await fileService.searchFileWithError()
 
         expect(response).toEqual({
             message: 'Error searching file',
